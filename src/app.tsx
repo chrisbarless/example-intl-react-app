@@ -1,8 +1,3 @@
-import * as React from 'react'
-
-const App = <div>Form</div>;
-
-export default App;
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import {IntlProvider, FormattedMessage} from 'react-intl';
