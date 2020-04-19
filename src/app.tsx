@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import {IntlProvider, FormattedMessage} from 'react-intl';
 
-import messages from './messages';
+import messages from './messages.yaml';
 
 const App: React.FC = () => (
   <div>
