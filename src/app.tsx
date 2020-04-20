@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import {IntlProvider, FormattedDate} from 'react-intl';
+import {IntlProvider, FormattedMessage, FormattedDate} from 'react-intl';
 import {Select, MenuItem} from '@material-ui/core';
 import messages from './config/messages.yaml';
 
@@ -24,7 +24,7 @@ const App: React.FC = () => {
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
-      <Form regionName={regions.find(({value}) => region === value).label} />
+      <Form region={regions.find(({value}) => region === value)} />
       <section className="bottomBar">
         <FormattedDate
           className="date"

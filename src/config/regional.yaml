@@ -1,0 +1,5 @@
+disabledProcedures:
+  co:
+    - C
+  az: 
+    - B
