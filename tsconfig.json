@@ -11,7 +11,8 @@
     },
     "typeRoots": ["node_modules/@types"],
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "lib": ["esnext.intl", "es2017.intl", "es2018.intl"]
   },
   "include": ["src/**/*"]
 }
