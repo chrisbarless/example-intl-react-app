@@ -9,11 +9,18 @@ import LanguageSwitcher from './components/language-switcher';
 
 const App: React.FC = () => {
   const [locale, setLocale] = React.useState('en-US');
+  const date = React.useRef(new Date());
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
       <Form />
       <section className="bottomBar">
+        <FormattedDate
+          value={date.current}
+          year="numeric"
+          month="long"
+          day="2-digit"
+        />
         <LanguageSwitcher onChange={setLocale} locale={locale} />
       </section>
     </IntlProvider>
