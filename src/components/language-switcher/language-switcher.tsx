@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './language-switcher.scss';
 
 const languages = [
   {label: 'EN', value: 'en-US'},

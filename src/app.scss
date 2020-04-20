@@ -16,4 +16,34 @@ body {
   color: $grey;
   background: $lavender;
   font-family: Roboto, sans-serif;
+  flex-flow: column;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  flex-flow: column;
+  justify-items: center;
+}
+
+.form {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 800px;
+  align-self: center;
+}
+.bottomBar {
+  flex: 0 1 auto;
+}
+
+.language-switcher {
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1rem;
+}
+.currentDate {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 1rem;
 }
