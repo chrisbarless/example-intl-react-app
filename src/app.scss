@@ -1,0 +1,19 @@
+$grey: #f4f4f4;
+$teal: #8ec6c5;
+$lavender: #6983aa;
+$magenta: #8566aa;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body * {
+  display: flex;
+}
+
+body {
+  color: $grey;
+  background: $lavender;
+  font-family: Roboto, sans-serif;
+}
