@@ -1,34 +1,85 @@
 import * as React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {
+  FormControl,
+  FormLabel,
+  FormControlLabel,
+  RadioGroup,
+  Radio,
+  Button,
+} from '@material-ui/core';
 
 type FormProps = {
-  region: string;
+  regionName: string;
+};
+type FormState = {
+  [procedureName: string]: ?boolean;
 };
 
-const Form: React.FC = ({region}: FormProps) => (
-  <form className="form">
-    <h1 className="formSection">
-      <FormattedMessage id="institutionName" values={{region}} />
-    </h1>
-    {[1, 2, 3].map((val) => {
-      const procedureName = `procedure${val}`;
-      return (
-        <section className="formSection" key={procedureName}>
-          <FormattedMessage id={procedureName} values={{region}} />
-          <div className="buttons">
-            <label htmlFor={`${procedureName}-yes`}>
-              <FormattedMessage id="yes" />
-              <input type="radio" name={procedureName} />
-            </label>
-            <label htmlFor={`${procedureName}-no`}>
-              <FormattedMessage id="no" />
-              <input type="radio" name={procedureName} />
-            </label>
-          </div>
-        </section>
-      );
-    })}
-  </form>
-);
+const initialState = {};
+
+function reducer(state, action): FormState {
+  switch (action.type) {
+    case 'changeRadio':
+      return {...state, ...action.payload};
+    default:
+      throw new Error();
+  }
+}
+
+const Form: React.FC = ({regionName}: FormProps) => {
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  return (
+    <form
+      className="form"
+      onSubmit={(event) => {
+        event.preventDefault();
+        alert(JSON.stringify(state));
+      }}
+    >
+      <h1 className="formSection">
+        <FormattedMessage id="institutionName" values={{regionName}} />
+      </h1>
+      {[1, 2, 3].map((val) => {
+        const procedureName = `procedure${val}`;
+        return (
+          <FormControl component="fieldset" key={procedureName}>
+            <FormLabel component="legend">
+              <FormattedMessage id={procedureName} />
+            </FormLabel>
+            <RadioGroup
+              aria-label={procedureName}
+              name={procedureName}
+              value={state[procedureName]}
+              onChange={(event) => {
+                dispatch({
+                  type: 'changeRadio',
+                  payload: {
+                    [procedureName]: event.target.value,
+                  },
+                });
+              }}
+            >
+              <FormControlLabel
+                value="yes"
+                control={<Radio />}
+                label={<FormattedMessage id="yes" />}
+              />
+              <FormControlLabel
+                value="no"
+                control={<Radio />}
+                label={<FormattedMessage id="no" />}
+              />
+            </RadioGroup>
+          </FormControl>
+        );
+      })}
+      <Button variant="contained" color="primary" type="submit">
+        Submit
+      </Button>
+    </form>
+  );
+};
 
 export default Form;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import {IntlProvider, FormattedDate} from 'react-intl';
-
+import {Select, MenuItem} from '@material-ui/core';
 import messages from './config/messages.yaml';
 
 import Form from './components/form';
@@ -24,7 +24,7 @@ const App: React.FC = () => {
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
-      <Form region={regions.find(({value}) => region === value).label} />
+      <Form regionName={regions.find(({value}) => region === value).label} />
       <section className="bottomBar">
         <FormattedDate
           className="date"
@@ -34,7 +34,7 @@ const App: React.FC = () => {
           day="2-digit"
         />
         <div className="switchers">
-          <select
+          <Select
             className="switcher"
             name="region"
             defaultValue={region}
@@ -42,12 +42,12 @@ const App: React.FC = () => {
             onChange={(event): void => setRegion(event.target.value)}
           >
             {regions.map(({label, value}) => (
-              <option key={value} value={value}>
+              <MenuItem key={value} value={value}>
                 {label}
-              </option>
+              </MenuItem>
             ))}
-          </select>
-          <select
+          </Select>
+          <Select
             className="switcher"
             name="locale"
             defaultValue={locale}
@@ -55,11 +55,11 @@ const App: React.FC = () => {
             onChange={(event): void => setLocale(event.target.value)}
           >
             {languages.map(({label, value}) => (
-              <option key={value} value={value}>
+              <MenuItem key={value} value={value}>
                 {label}
-              </option>
+              </MenuItem>
             ))}
-          </select>
+          </Select>
         </div>
       </section>
     </IntlProvider>
