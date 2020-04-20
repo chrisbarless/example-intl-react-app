@@ -1,23 +1,18 @@
 import * as React from 'react';
 
-const languages = [
-  {label: 'EN', value: 'en-US'},
-  {label: 'ES', value: 'es-US'},
-];
-
 type LanguageSwitcherProps = {
-  locale: 'en-US' | 'es-US';
+  region: 'ca' | 'co' | 'az';
 };
 
-const LanguageSwitcher: React.FC = ({
-  locale,
+export const RegionSwitcher: React.FC = ({
+  region,
   onChange,
 }: LanguageSwitcherProps) => (
   <select
-    className="language-switcher"
-    name="locale"
-    defaultValue={locale}
-    id="locale"
+    className="switcher"
+    name="region"
+    defaultValue={regions[0]}
+    id="region"
     onChange={(event): void => onChange(event.target.value)}
   >
     {languages.map(({label, value}) => (
@@ -27,5 +22,3 @@ const LanguageSwitcher: React.FC = ({
     ))}
   </select>
 );
-
-export default LanguageSwitcher;

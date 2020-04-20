@@ -3,22 +3,20 @@ $teal: #8ec6c5;
 $lavender: #6983aa;
 $magenta: #8566aa;
 
+// Global
 * {
   margin: 0;
   padding: 0;
 }
-
 body * {
   display: flex;
 }
-
 body {
   color: $grey;
   background: $lavender;
   font-family: Roboto, sans-serif;
   flex-flow: column;
 }
-
 #root {
   height: 100vh;
   width: 100vw;
@@ -26,24 +24,33 @@ body {
   justify-items: center;
 }
 
+// Form body
 .form {
   flex: 1 0 auto;
+  flex-flow: column;
   width: 100%;
   max-width: 800px;
   align-self: center;
 }
-.bottomBar {
-  flex: 0 1 auto;
+.formSection {
+  margin: 20px 0;
+  flex-flow: column;
+}
+.form input[type='radio'] {
+  display: none;
+}
+.form label {
+  cursor: pointer;
 }
 
-.language-switcher {
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 1rem;
+// Bottom bar
+.bottomBar {
+  flex: 0 1 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 }
-.currentDate {
-  position: fixed;
-  bottom: 1rem;
-  left: 1rem;
+.switcher {
   font-size: 1rem;
+  margin-left: 0.5rem;
 }
