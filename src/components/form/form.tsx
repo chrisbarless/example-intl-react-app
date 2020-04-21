@@ -8,6 +8,7 @@ import {
   Radio,
   Button,
 } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import regionalData from '~/config/regional.yaml';
 
 type FormProps = {
@@ -40,12 +41,12 @@ const Form: React.FC = ({regionValue, regionLabel}: FormProps) => {
         alert(JSON.stringify(state));
       }}
     >
-      <h1 className="formSection">
-        <FormattedMessage id="institutionName" values={{regionLabel}} />
-      </h1>
-      <h3 className="formSection">
-        <FormattedMessage id="formHeader" />
-      </h3>
+      <FormattedMessage id="institutionName" values={{regionLabel}}>
+        {(txt) => <h1 className="appTitle">{txt}</h1>}
+      </FormattedMessage>
+      <FormattedMessage id="formHeader">
+        {(txt) => <h3 className="appSubtitle">{txt}</h3>}
+      </FormattedMessage>
       {['A', 'B', 'C'].map((val) => {
         const procedureName = `procedure${val}`;
         if (regionalData.disabledProcedures[regionValue]?.includes(val)) {

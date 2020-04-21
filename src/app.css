@@ -20,10 +20,15 @@ body * {
 }
 #root {
   display: flex;
-  height: 100vh;
-  width: 100vw;
   flex-flow: column;
-  justify-items: center;
+}
+.appTitle {
+  font-size: 2rem;
+  margin: 2rem 0 0.5rem;
+}
+.appSubtitle {
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
 }
 
 /* Form */
@@ -31,13 +36,12 @@ body * {
   display: flex;
   flex: 1 0 auto;
   flex-flow: column;
-  width: 100%;
   max-width: 700px;
   align-self: center;
 }
 .formSection {
   display: flex;
-  margin: 20px 0;
+  margin: 0 0 1rem;
   flex-flow: column;
 }
 .form input[type='radio'] {
@@ -50,7 +54,10 @@ body * {
 /* Bottom bar */
 .bottomBar {
   display: flex;
-  flex: 0 1 auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
