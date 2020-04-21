@@ -1,4 +1,4 @@
-# August Health React App Prototype
+# August Health React App Example
 
 Built with [ParcelJS](https://parceljs.org/)
 
