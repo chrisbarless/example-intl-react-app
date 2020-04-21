@@ -48,9 +48,11 @@ const Form: React.FC = ({regionValue, regionLabel}: FormProps) => {
       </FormattedMessage>
       {['A', 'B', 'C'].map((val) => {
         const procedureName = `procedure${val}`;
+
         if (regionalData.disabledProcedures[regionValue]?.includes(val)) {
           return null;
         }
+
         return (
           <FormControl component="fieldset" key={procedureName}>
             <FormLabel component="legend">
@@ -84,7 +86,7 @@ const Form: React.FC = ({regionValue, regionLabel}: FormProps) => {
         );
       })}
       <Button variant="contained" color="primary" type="submit">
-        Submit
+        <FormattedMessage id="submit" />
       </Button>
     </form>
   );

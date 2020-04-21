@@ -6,6 +6,7 @@ en-US:
   procedureC:  'Was procedure C performed?'
   yes:  'Yes'
   no:  'No'
+  submit:  'Submit'
 es-US:
   institutionName:  'Casa del {regionLabel} vida asistida'  
   formHeader:  'Por favor rellene el formulario'
@@ -14,3 +15,4 @@ es-US:
   procedureC:  '¿Se realizó el procedimiento C?'
   yes:  'Sí'
   no:  'No'
+  submit: 'Presentar'
