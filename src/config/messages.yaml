@@ -1,5 +1,5 @@
 en-US: 
-  institutionName:  '{regionName} House Assisted Living'  
+  institutionName:  '{regionLabel} House Assisted Living'  
   formHeader:  'Please fill out the form'
   procedureA:  'Was procedure A performed?'
   procedureB:  'Was procedure B performed?'
@@ -7,7 +7,7 @@ en-US:
   yes:  'Yes'
   no:  'No'
 es-US:
-  institutionName:  'Casa del {regionName} vida asistida'  
+  institutionName:  'Casa del {regionLabel} vida asistida'  
   formHeader:  'Por favor rellene el formulario'
   procedureA:  '¿Se realizó el procedimiento A?'
   procedureB:  '¿Se realizó el procedimiento B?'

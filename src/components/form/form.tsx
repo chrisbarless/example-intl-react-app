@@ -11,10 +11,7 @@ import {
 import regionalData from '~/config/regional.yaml';
 
 type FormProps = {
-  region: {
-    label: string;
-    value: string;
-  };
+  region: [string, string];
 };
 type FormState = {
   [procedureName: string]: ?boolean;
@@ -33,6 +30,7 @@ function reducer(state, action): FormState {
 
 const Form: React.FC = ({region}: FormProps) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
+  const [regionValue, regionLabel] = region;
 
   return (
     <form
@@ -43,17 +41,14 @@ const Form: React.FC = ({region}: FormProps) => {
       }}
     >
       <h1 className="formSection">
-        <FormattedMessage
-          id="institutionName"
-          values={{regionName: region.label}}
-        />
+        <FormattedMessage id="institutionName" values={{regionLabel}} />
       </h1>
       <h3 className="formSection">
         <FormattedMessage id="formHeader" />
       </h3>
       {['A', 'B', 'C'].map((val) => {
         const procedureName = `procedure${val}`;
-        if (regionalData.disabledProcedures[region.value]?.includes(val)) {
+        if (regionalData.disabledProcedures[regionValue]?.includes(val)) {
           return null;
         }
         return (

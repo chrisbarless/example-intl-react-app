@@ -6,16 +6,16 @@ import messages from './config/messages.yaml';
 
 import Form from './components/form';
 
-const languages = [
-  {label: 'EN', value: 'en-US'},
-  {label: 'ES', value: 'es-US'},
-];
+const languages = new Map<string, string>([
+  ['EN', 'en-US'],
+  ['ES', 'es-US'],
+]);
 
-const regions = [
-  {label: 'California', value: 'ca'},
-  {label: 'Colorado', value: 'co'},
-  {label: 'Arizona', value: 'az'},
-];
+const regions = new Map<string, string>([
+  ['California', 'ca'],
+  ['Colorado', 'co'],
+  ['Arizona', 'az'],
+]);
 
 const App: React.FC = () => {
   const [locale, setLocale] = React.useState('en-US');
@@ -24,7 +24,7 @@ const App: React.FC = () => {
 
   return (
     <IntlProvider key={locale} locale={locale} messages={messages[locale]}>
-      <Form region={regions.find(({value}) => region === value)} />
+      <Form region={[region, regions.get(region)]} />
       <section className="bottomBar">
         <FormattedDate
           className="date"
@@ -41,7 +41,7 @@ const App: React.FC = () => {
             id="region"
             onChange={(event): void => setRegion(event.target.value)}
           >
-            {regions.map(({label, value}) => (
+            {[...regions].map(([label, value]) => (
               <MenuItem key={value} value={value}>
                 {label}
               </MenuItem>
@@ -54,7 +54,7 @@ const App: React.FC = () => {
             id="locale"
             onChange={(event): void => setLocale(event.target.value)}
           >
-            {languages.map(({label, value}) => (
+            {[...languages].map(([label, value]) => (
               <MenuItem key={value} value={value}>
                 {label}
               </MenuItem>
