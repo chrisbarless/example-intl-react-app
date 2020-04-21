@@ -11,10 +11,11 @@ import {
 import regionalData from '~/config/regional.yaml';
 
 type FormProps = {
-  region: [string, string];
+  regionValue: string;
+  regionLabel: string;
 };
 type FormState = {
-  [procedureName: string]: ?boolean;
+  [procedureName: string]: ?('yes' | 'no');
 };
 
 const initialState = {};
@@ -28,9 +29,8 @@ function reducer(state, action): FormState {
   }
 }
 
-const Form: React.FC = ({region}: FormProps) => {
+const Form: React.FC = ({regionValue, regionLabel}: FormProps) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
-  const [regionValue, regionLabel] = region;
 
   return (
     <form

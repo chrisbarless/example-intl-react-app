@@ -7,14 +7,14 @@ import messages from './config/messages.yaml';
 import Form from './components/form';
 
 const languages = new Map<string, string>([
-  ['EN', 'en-US'],
-  ['ES', 'es-US'],
+  ['en-US', 'EN'],
+  ['es-US', 'ES'],
 ]);
 
 const regions = new Map<string, string>([
-  ['California', 'ca'],
-  ['Colorado', 'co'],
-  ['Arizona', 'az'],
+  ['ca', 'California'],
+  ['co', 'Colorado'],
+  ['az', 'Arizona'],
 ]);
 
 const App: React.FC = () => {
@@ -23,8 +23,8 @@ const App: React.FC = () => {
   const date = React.useRef(new Date());
 
   return (
-    <IntlProvider key={locale} locale={locale} messages={messages[locale]}>
-      <Form region={[region, regions.get(region)]} />
+    <IntlProvider key={region} locale={locale} messages={messages[locale]}>
+      <Form regionValue={region} regionLabel={regions.get(region)} />
       <section className="bottomBar">
         <FormattedDate
           className="date"
@@ -37,11 +37,11 @@ const App: React.FC = () => {
           <Select
             className="switcher"
             name="region"
-            defaultValue={region}
+            value={region}
             id="region"
             onChange={(event): void => setRegion(event.target.value)}
           >
-            {[...regions].map(([label, value]) => (
+            {[...regions].map(([value, label]) => (
               <MenuItem key={value} value={value}>
                 {label}
               </MenuItem>
@@ -50,11 +50,11 @@ const App: React.FC = () => {
           <Select
             className="switcher"
             name="locale"
-            defaultValue={locale}
+            value={locale}
             id="locale"
             onChange={(event): void => setLocale(event.target.value)}
           >
-            {[...languages].map(([label, value]) => (
+            {[...languages].map(([value, label]) => (
               <MenuItem key={value} value={value}>
                 {label}
               </MenuItem>
