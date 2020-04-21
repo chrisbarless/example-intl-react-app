@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const date = React.useRef(new Date());
 
   return (
-    <IntlProvider locale={locale} messages={messages[locale]}>
+    <IntlProvider key={locale} locale={locale} messages={messages[locale]}>
       <Form region={regions.find(({value}) => region === value)} />
       <section className="bottomBar">
         <FormattedDate
