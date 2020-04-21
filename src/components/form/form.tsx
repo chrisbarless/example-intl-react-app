@@ -8,7 +8,6 @@ import {
   Radio,
   Button,
 } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
 import regionalData from '~/config/regional.yaml';
 
 type FormProps = {
@@ -36,16 +35,16 @@ const Form: React.FC = ({regionValue, regionLabel}: FormProps) => {
   return (
     <form
       className="form"
-      onSubmit={(event) => {
+      onSubmit={(event): void => {
         event.preventDefault();
         alert(JSON.stringify(state));
       }}
     >
       <FormattedMessage id="institutionName" values={{regionLabel}}>
-        {(txt) => <h1 className="appTitle">{txt}</h1>}
+        {(txt): React.FC => <h1 className="appTitle">{txt}</h1>}
       </FormattedMessage>
       <FormattedMessage id="formHeader">
-        {(txt) => <h3 className="appSubtitle">{txt}</h3>}
+        {(txt): React.FC => <h3 className="appSubtitle">{txt}</h3>}
       </FormattedMessage>
       {['A', 'B', 'C'].map((val) => {
         const procedureName = `procedure${val}`;
@@ -61,7 +60,7 @@ const Form: React.FC = ({regionValue, regionLabel}: FormProps) => {
               aria-label={procedureName}
               name={procedureName}
               value={state[procedureName]}
-              onChange={(event) => {
+              onChange={(event): void => {
                 dispatch({
                   type: 'changeRadio',
                   payload: {
