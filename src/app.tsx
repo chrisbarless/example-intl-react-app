@@ -2,9 +2,9 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import {IntlProvider, FormattedMessage, FormattedDate} from 'react-intl';
 import {Select, MenuItem} from '@material-ui/core';
-import messages from './config/messages.yaml';
 
 import Form from './components/form';
+import messages from './config/messages.yaml';
 
 const languages = new Map<string, string>([
   ['en-US', 'EN'],
