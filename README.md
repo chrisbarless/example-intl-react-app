@@ -4,9 +4,9 @@ Built with [ParcelJS](https://parceljs.org/) and [TypeScript](https://www.typesc
 
 ```bash
     # To run in development mode
-    yarn dev
+    yarn start
     # or
-    npm run dev
+    npm run start
     
     # To run in production mode
     yarn build
