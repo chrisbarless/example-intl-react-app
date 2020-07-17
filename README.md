@@ -1,4 +1,4 @@
-# August Health React App Example
+# i18n React App Example
 
 Built with [ParcelJS](https://parceljs.org/)
 
