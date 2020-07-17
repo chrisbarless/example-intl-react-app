@@ -15,7 +15,7 @@ type FormProps = {
   regionLabel: string;
 };
 type FormState = {
-  [procedureName: string]: ?('yes' | 'no');
+  [optionName: string]: ?('yes' | 'no');
 };
 
 const initialState = {};
@@ -47,26 +47,26 @@ const Form: React.FC = ({regionValue, regionLabel}: FormProps) => {
         {(txt): React.FC => <h3 className="appSubtitle">{txt}</h3>}
       </FormattedMessage>
       {['A', 'B', 'C'].map((val) => {
-        const procedureName = `procedure${val}`;
+        const optionName = `option${val}`;
 
-        if (regionalData.disabledProcedures[regionValue]?.includes(val)) {
+        if (regionalData.disabledOptions[regionValue]?.includes(val)) {
           return null;
         }
 
         return (
-          <FormControl component="fieldset" key={procedureName}>
+          <FormControl component="fieldset" key={optionName}>
             <FormLabel component="legend">
-              <FormattedMessage id={procedureName} />
+              <FormattedMessage id={optionName} />
             </FormLabel>
             <RadioGroup
-              aria-label={procedureName}
-              name={procedureName}
-              value={state[procedureName]}
+              aria-label={optionName}
+              name={optionName}
+              value={state[optionName]}
               onChange={(event): void => {
                 dispatch({
                   type: 'changeRadio',
                   payload: {
-                    [procedureName]: event.target.value,
+                    [optionName]: event.target.value,
                   },
                 });
               }}

@@ -1,4 +1,4 @@
-disabledProcedures:
+disabledOptions:
   co:
     - C
   az: 
