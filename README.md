@@ -1,6 +1,6 @@
-# i18n React App Example
+# Internationalized (i18n) React App Example
 
-Built with [ParcelJS](https://parceljs.org/)
+Built with [ParcelJS](https://parceljs.org/) and [TypeScript](https://www.typescriptlang.org/)
 
 ```bash
     # To run in development mode
